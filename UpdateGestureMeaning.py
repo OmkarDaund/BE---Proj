@@ -12,8 +12,8 @@ print 'ENTER TEXT ACCORDINGLY'
 for i in range(int(total)):
     n=raw_input()
     temp_text.append((n))
-np.savetxt('text.txt',temp_text,delimiter=" ",fmt="%s")
-load=np.loadtxt('text.txt',dtype=np.str,delimiter=" ")
+np.savetxt('UserGestureMeaningDataFile.txt',temp_text,delimiter=" ",fmt="%s")
+load=np.loadtxt('UserGestureMeaningDataFile.txt',dtype=np.str,delimiter=" ")
 print load
 
 

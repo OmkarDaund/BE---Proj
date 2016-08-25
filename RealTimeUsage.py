@@ -36,17 +36,17 @@ flag=np.zeros((int(i)))
 cn=i    
 
     #FILE DATA DISPLAY
-hull_area=np.loadtxt('hullarea.txt',dtype=float,delimiter=",")
-print 'hullarea',hull_area
-count_area=np.loadtxt('contarea.txt',dtype=float,delimiter=",")
-print 'contarea',count_area
-solidity=np.loadtxt('solidity.txt',dtype=float,delimiter=",")
+hull_area=np.loadtxt('HullAreaDataFile.txt',dtype=float,UserGestureMeaningDataFile.txt=",")
+print 'HullAreaDataFile',hull_area
+count_area=np.loadtxt('ContourAreaDataFile.txt',dtype=float,UserGestureMeaningDataFile.txt=",")
+print 'ContourAreaDataFile',count_area
+solidity=np.loadtxt('SolidityDataFile.txt',dtype=float,UserGestureMeaningDataFile.txt=",")
 print 'solidity',solidity
-pericnt=np.loadtxt('contperi.txt',dtype=float,delimiter=",")
-print 'contperi',pericnt
-perihul=np.loadtxt('hullperi.txt',dtype=float,delimiter=",")
-print 'hullperi',perihul
-textarr=np.loadtxt('text.txt',dtype=np.str,delimiter=" ")
+pericnt=np.loadtxt('ContourPerimeterDataFile.txt',dtype=float,UserGestureMeaningDataFile.txt=",")
+print 'ContourPerimeterDataFile',pericnt
+perihul=np.loadtxt('HullPerimeterDataFile.txt',dtype=float,UserGestureMeaningDataFile.txt=",")
+print 'HullPerimeterDataFile',perihul
+textarr=np.loadtxt('UserGestureMeaningDataFile.txt',dtype=np.str,UserGestureMeaningDataFile.txt=" ")
 print 'text file',textarr
 
     #CREATING MAX AND MIN RANGE
@@ -210,7 +210,7 @@ while( cap.isOpened() ) :
     #if m!=0 & m<=cn:
 	
         say.append((textarr[cntr1]))
-        np.savetxt('say.txt',say,delimiter=" ",fmt="%s")
+        np.savetxt('AppendedStatement.txt',say,UserGestureMeaningDataFile.txt=" ",fmt="%s")
         print 'SAY',say
     else :  
         print 'no success'
@@ -218,11 +218,13 @@ while( cap.isOpened() ) :
 
 #While ends here
 print 'Say text file',say
+
 audio=' , '.join(say)
 print 'Audio sentencce',audio
 engine.say(audio)
 engine.runAndWait()
 audio=''
+
 cap.release()
 cv2.destroyAllWindows()
 

@@ -89,11 +89,11 @@ while( cap.isOpened() ) :
     if cv2.waitKey(1) & 0xFF == ord('q') :
         break
     #SAVE TO FILE
-np.savetxt('hullarea.txt',hular,delimiter=",",fmt="%f")
-np.savetxt('contarea.txt',cntar,delimiter=",",fmt="%f")
-np.savetxt('solidity.txt',soli,delimiter=",",fmt="%f")
-np.savetxt('contperi.txt',pericnt,delimiter=",",fmt="%f")
-np.savetxt('hullperi.txt',perihul,delimiter=",",fmt="%f")
+np.savetxt('HullAreaDataFile.txt',hular,delimiter=",",fmt="%f")
+np.savetxt('ContourAreaDataFile.txt',cntar,delimiter=",",fmt="%f")
+np.savetxt('SolidityDataFile.txt',soli,delimiter=",",fmt="%f")
+np.savetxt('ContourPerimeterDataFile.txt',pericnt,delimiter=",",fmt="%f")
+np.savetxt('HullPerimeterDataFile.txt',perihul,delimiter=",",fmt="%f")
 #np.savetxt('cntr.txt',cntr,fmt="%d")
 #print 'max area',cntar
 #print 'hull area',hular
@@ -105,14 +105,14 @@ cap.release()
 cv2.destroyAllWindows()
 
     #FILE DATA DISPLAY
-#val=np.loadtxt('hullarea.txt',dtype=float,delimiter=",")
-#print 'hullarea',val
-#val=np.loadtxt('contarea.txt',dtype=float,delimiter=",")
-#print 'contarea',val
-#val=np.loadtxt('solidity.txt',dtype=float,delimiter=",")
+#val=np.loadtxt('HullAreaDataFile.txt',dtype=float,delimiter=",")
+#print 'HullAreaDataFile',val
+#val=np.loadtxt('ContourAreaDataFile.txt',dtype=float,delimiter=",")
+#print 'ContourAreaDataFile',val
+#val=np.loadtxt('SolidityDataFile.txt',dtype=float,delimiter=",")
 #print 'solidity',val
-#val=np.loadtxt('contperi.txt',dtype=float,delimiter=",")
-#print 'contperi',val
-#val=np.loadtxt('hullperi.txt',dtype=float,delimiter=",")
-#print 'hullperi',val
+#val=np.loadtxt('ContourPerimeterDataFile.txt',dtype=float,delimiter=",")
+#print 'ContourPerimeterDataFile',val
+#val=np.loadtxt('HullPerimeterDataFile.txt',dtype=float,delimiter=",")
+#print 'HullPerimeterDataFile',val
 
