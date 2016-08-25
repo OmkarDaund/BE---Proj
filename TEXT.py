@@ -1,4 +1,5 @@
 #TAKE TEXT FROM USER
+
 import cv2
 import numpy as np
 temp_text=list('')
@@ -6,6 +7,7 @@ load=list('')
 
 print 'ENTER TOTAL SHOWN GESTURES'
 total=raw_input()
+
 print 'ENTER TEXT ACCORDINGLY'
 for i in range(int(total)):
     n=raw_input()

@@ -4,6 +4,8 @@ import numpy as np
 import pyttsx
 engine=pyttsx.init()
 cap = cv2.VideoCapture(0)
+
+
 while(1):
     ret,frame =cap.read()
     cv2.imshow('cap',frame)
@@ -12,6 +14,9 @@ while(1):
     break
 print "1st out"
 cv2.destroyAllWindows()
+
+
+
 textarr=list('')
 j=0
 say=list('')
@@ -24,6 +29,7 @@ cntr1=0
 k=0
 i=0
 lim=5
+
 print 'ENTER TOTAL GESTURES'
 i=raw_input()
 flag=np.zeros((int(i)))
@@ -97,6 +103,8 @@ print 'solidity_min',solidity_min
 
 print "#########start"
 #REAL TIME GESTURE VALUES
+
+
 while( cap.isOpened() ) :
     while(True):
         ret,im=cap.read()
@@ -115,24 +123,33 @@ while( cap.isOpened() ) :
     ret,thresh1 = cv2.threshold(gray,70,82,1)
     #cv2.imshow('thresh',thresh1)
     gray,contours, hierarchy = cv2.findContours(thresh1,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+	
     max_area1 =1
     ci=0
+	
     for i in range(len(contours)):
             cnt=contours[i]
             area = cv2.contourArea(cnt)
             if(area>max_area1):
                 max_area1=area
                 ci=i
+				
     cnt=contours[ci]
+	
+	
     #CONTOUR AREA
     #max_area1
+	
     #HULL AREA
     hull = cv2.convexHull(cnt)
     hull_area1=cv2.contourArea(hull)
     #hull_area
+	
     #SOLIDITY
     solidity1=max_area1/hull_area1
     #solidity
+	
+	
     #PERIMETER
     perimeter_count=cv2.arcLength(cnt,True)
     #perimeter_count    
@@ -174,12 +191,16 @@ while( cap.isOpened() ) :
         if solidity_min[j] <=  solidity1 <= solidity_max[j] :
             flag[j]=flag[j]+1
             print "solidity"
+			
     m=0        
     print "flag=" , flag
+	
     if cv2.waitKey(1) & 0xFF == ord('q') :
             break 
+			
     m=np.amax(flag)
     cntr1=0
+	
     while(flag[cntr1]!=m):
         cntr1=cntr1+1
     if m>=3 and m<=cn:
@@ -187,11 +208,15 @@ while( cap.isOpened() ) :
     #if cv2.waitKey(1) & 0xFF == ord('s') :
         #print 'SAY',say
     #if m!=0 & m<=cn:
+	
         say.append((textarr[cntr1]))
         np.savetxt('say.txt',say,delimiter=" ",fmt="%s")
         print 'SAY',say
     else :  
         print 'no success'
+		
+
+#While ends here
 print 'Say text file',say
 audio=' , '.join(say)
 print 'Audio sentencce',audio
