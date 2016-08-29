@@ -2,18 +2,23 @@
 
 import cv2
 import numpy as np
-temp_text=list('')
+temporaryTextData=list('')
 load=list('')
 
 print 'ENTER TOTAL SHOWN GESTURES'
-total=raw_input()
+numberOfGestures=raw_input()
 
+#Taking values for all the provided gestures
 print 'ENTER TEXT ACCORDINGLY'
-for i in range(int(total)):
-    n=raw_input()
-    temp_text.append((n))
-np.savetxt('UserGestureMeaningDataFile.txt',temp_text,delimiter=" ",fmt="%s")
+for i in range(int(numberOfGesturesl)):
+    currentMeaning=raw_input()
+    temporaryTextData.append((currentMeaning))
+	
+#Saving the data to the text file UserGestureMeaningDataFile.txt
+np.savetxt('UserGestureMeaningDataFile.txt',temporaryTextData,delimiter=" ",fmt="%s")
 load=np.loadtxt('UserGestureMeaningDataFile.txt',dtype=np.str,delimiter=" ")
+
+#print all the given gesture meanings
 print load
 
 

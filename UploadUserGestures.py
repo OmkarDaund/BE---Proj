@@ -1,7 +1,9 @@
 import cv2                              
 import numpy as np
 import time
+
 #VARIABLE DEC
+
 cntr=0
 hull_area=0
 solidity=0
@@ -13,11 +15,13 @@ perimeter_count=0
 perimeter_hull=0
 
 #ARRAY DEC
+
 cntar=np.zeros((20))
 hular=np.zeros((20))
 soli=np.zeros((20))
 pericnt=np.zeros((20))
 perihul=np.zeros((20))
+
 #FILE DEC
 
 val=np.zeros((10))
@@ -48,20 +52,25 @@ while( cap.isOpened() ) :
                 max_area1=area
                 ci=i
     cnt=contours[ci]
+	
     #CONTOUR AREA
     cntar[cntr]=max_area1
+	
     #HULL AREA
     hull = cv2.convexHull(cnt)
     hull_area=cv2.contourArea(hull)
     hular[cntr]=hull_area
+	
     #SOLIDITY
     solidity=max_area1/hull_area
     soli[cntr]=solidity
+	
     #PERIMETER
     perimeter_count=cv2.arcLength(cnt,True)
     pericnt[cntr]=perimeter_count    
     perimeter_hull=cv2.arcLength(hull,True)
     perihul[cntr]=perimeter_hull
+	
     #print "ENTER WHAT TO SAY!!"
     #text1=raw_input()
     #text[cntr]=text1
@@ -88,12 +97,14 @@ while( cap.isOpened() ) :
     
     if cv2.waitKey(1) & 0xFF == ord('q') :
         break
+		
     #SAVE TO FILE
 np.savetxt('HullAreaDataFile.txt',hular,delimiter=",",fmt="%f")
 np.savetxt('ContourAreaDataFile.txt',cntar,delimiter=",",fmt="%f")
 np.savetxt('SolidityDataFile.txt',soli,delimiter=",",fmt="%f")
 np.savetxt('ContourPerimeterDataFile.txt',pericnt,delimiter=",",fmt="%f")
 np.savetxt('HullPerimeterDataFile.txt',perihul,delimiter=",",fmt="%f")
+
 #np.savetxt('cntr.txt',cntr,fmt="%d")
 #print 'max area',cntar
 #print 'hull area',hular

@@ -9,6 +9,7 @@ class TraversalDemo:
 
         root.title('Recongizing hand gestures and converting to audio')
         #TAKING GESTURE CODE
+		
         button = Button(root, text = "Take gesture")
         button.pack()
 
@@ -17,10 +18,12 @@ class TraversalDemo:
             os.system('UploadUserGestures.py')
 
         button.config(command = callback)
+		
         #TAKE GESTURE ENDS
         
     #button.invoke()
         #TEXT FILE INPUT
+		
         label_1 = Label(root, text="Write meaning: ")
         label_1.pack()
         entry_1 = Entry(root)
@@ -35,11 +38,13 @@ class TraversalDemo:
             #else:
             #        print "Entry field is empty, add some text and try again"
 
-        button.config(command = print_to_console)               
+        button.config(command = print_to_console)       
+        
         #TEXT FILE COMPLETE
 
 
         #PROCESS CODE STARTS
+		
         button = Button(root, text = "Process")
         button.pack()
 
@@ -48,15 +53,18 @@ class TraversalDemo:
                 os.system('RealTimeUsage.py')
         button.config(command = callback)
         #button.invoke()
+		
         #PROCESS CODE ENDS
 
         #EXIT CODE
+		
         button = Button(root, text = "exit")
         button.pack()
 
         def callback():
                 exit();
         button.config(command = callback)
+		
         #EXIT CODE ENDS
 
 

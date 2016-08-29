@@ -50,12 +50,14 @@ textarr=np.loadtxt('UserGestureMeaningDataFile.txt',dtype=np.str,UserGestureMean
 print 'text file',textarr
 
     #CREATING MAX AND MIN RANGE
+	
 #MAX ARRAY
 hull_area_max=np.zeros((20))
 count_area_max=np.zeros((20))
 pericnt_max=np.zeros((20))
 perihul_max=np.zeros((20))
 solidity_max=np.zeros((20))
+
 #MIN ARRAY
 hull_area_min=np.zeros((20))
 count_area_min=np.zeros((20))
